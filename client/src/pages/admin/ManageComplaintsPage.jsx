@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import api from "../../services/api.js";
+import api, { apiBaseUrl } from "../../services/api.js";
 import StatusBadge from "../../components/StatusBadge.jsx";
 
 const statuses = ["All", "Pending", "In Progress", "Resolved", "Rejected"];
@@ -7,7 +7,7 @@ const updateStatuses = ["Pending", "In Progress", "Resolved", "Rejected"];
 const resolveAttachmentUrl = (url) => {
   if (!url) return "#";
   if (/^https?:\/\//i.test(url)) return url;
-  if (url.startsWith("/uploads/")) return `/api${url}`;
+  if (url.startsWith("/uploads/")) return `${apiBaseUrl}${url}`;
   return url;
 };
 

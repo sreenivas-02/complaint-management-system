@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import api from "../../services/api.js";
+import api, { apiBaseUrl } from "../../services/api.js";
 import StatusBadge from "../../components/StatusBadge.jsx";
 import { useAuth } from "../../context/AuthContext.jsx";
 
 const resolveAttachmentUrl = (url) => {
   if (!url) return "#";
   if (/^https?:\/\//i.test(url)) return url;
-  if (url.startsWith("/uploads/")) return `/api${url}`;
+  if (url.startsWith("/uploads/")) return `${apiBaseUrl}${url}`;
   return url;
 };
 
