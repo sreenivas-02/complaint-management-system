@@ -1,8 +1,24 @@
-# College Complaint Management System
+# 🎓 College Complaint Management System
 
-A full-stack complaint management platform for colleges and universities. Students can report and track issues, while administrators can triage complaints, manage users, and monitor resolution trends from a central dashboard.
+> A modern, secure, and transparent way to turn campus problems into resolved outcomes.
 
-## Highlights
+A full-stack complaint management platform for colleges and universities. Students can report issues in seconds and track progress in real time, while administrators can triage complaints, manage users, and monitor resolution trends from one central dashboard.
+
+[![Frontend](https://img.shields.io/badge/frontend-React%20%2B%20Vite-61DAFB?logo=react&logoColor=white)](#-technology-stack)
+[![Backend](https://img.shields.io/badge/backend-Node.js%20%2B%20Express-339933?logo=node.js&logoColor=white)](#-technology-stack)
+[![Database](https://img.shields.io/badge/database-MongoDB-47A248?logo=mongodb&logoColor=white)](#-technology-stack)
+[![License](https://img.shields.io/badge/license-not%20declared-lightgrey)](#-license)
+
+## 🌟 Why This Project?
+
+Campus complaints often get lost in messages, paper forms, or disconnected spreadsheets. This system creates a single source of truth where every complaint has an owner, a status, a history, and a clear path to resolution.
+
+- 📣 **Students are heard** with an accessible digital reporting workflow.
+- 🔎 **Administrators stay organized** with search, filters, and actionable dashboards.
+- 📈 **Institutions make better decisions** using complaint trends and analytics.
+- 🤝 **Everyone sees progress** through transparent statuses and resolution remarks.
+
+## ✨ Highlights
 
 - Role-based authentication for students and administrators
 - Student dashboard with complaint summaries and recent activity
@@ -15,9 +31,27 @@ A full-stack complaint management platform for colleges and universities. Studen
 - Dark and light themes
 - JWT-based protected API routes
 
-## Screens and User Flows
+## 🧩 Core Modules
 
-### Students
+| Module | What it provides |
+| --- | --- |
+| 🔐 Authentication | Registration, login, role-based access, password recovery, and protected routes |
+| 📝 Complaint reporting | Structured forms with category, priority, description, and PDF attachments |
+| 🎒 Student portal | Dashboard, complaint history, details, status tracking, and profile settings |
+| 🛠️ Admin portal | Complaint triage, status updates, student management, and administrator profile |
+| 📊 Reports | Interactive charts for understanding department and status trends |
+| 🎨 Experience | Responsive glassmorphic UI, dark/light themes, animations, and mobile support |
+
+## 🔄 Complaint Lifecycle
+
+```text
+📝 Submitted → ⏳ Pending → 🔧 In Progress → ✅ Resolved
+                                  └──────────→ 🚫 Rejected
+```
+
+## 👥 Screens and User Flows
+
+### 🎒 Students
 
 1. Register or sign in as a student.
 2. Submit a complaint with its department/category, priority, description, and optional PDF files.
@@ -25,7 +59,7 @@ A full-stack complaint management platform for colleges and universities. Studen
 4. Follow status changes and administrator comments.
 5. Manage profile information and preferences.
 
-### Administrators
+### 🛡️ Administrators
 
 1. Sign in with an administrator account.
 2. Review dashboard totals and recent complaints.
@@ -34,7 +68,7 @@ A full-stack complaint management platform for colleges and universities. Studen
 5. Manage registered students.
 6. Review department and status trends in Reports.
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 | Layer | Technologies |
 | --- | --- |
@@ -47,7 +81,7 @@ A full-stack complaint management platform for colleges and universities. Studen
 | Database | MongoDB with Mongoose |
 | Uploads and email | Multer, Nodemailer |
 
-## Project Structure
+## 🗂️ Project Structure
 
 ```text
 .
@@ -70,13 +104,13 @@ A full-stack complaint management platform for colleges and universities. Studen
 └── README.md
 ```
 
-## Prerequisites
+## ✅ Prerequisites
 
 - Node.js 18 or newer
 - npm
 - MongoDB locally, or a MongoDB Atlas cluster
 
-## Run Locally
+## 🚀 Run Locally
 
 Clone the repository and install dependencies:
 
@@ -90,7 +124,7 @@ cd ../client
 npm install
 ```
 
-### Configure the backend
+### ⚙️ Configure the backend
 
 Create `server/.env`:
 
@@ -111,7 +145,7 @@ npm start
 
 The API runs at `http://localhost:5000`.
 
-### Start the frontend
+### 💻 Start the frontend
 
 In another terminal:
 
@@ -124,9 +158,9 @@ Open `http://localhost:5173`.
 
 During development, Vite proxies `/api` requests to `http://127.0.0.1:5000`. To use a different API URL, set `VITE_API_PROXY_TARGET` before starting Vite.
 
-## Available Scripts
+## 📦 Available Scripts
 
-### Client
+### Client (`client/`)
 
 ```bash
 npm run dev       # Start the Vite development server
@@ -134,14 +168,14 @@ npm run build     # Create a production build in dist/
 npm run preview   # Preview the production build locally
 ```
 
-### Server
+### Server (`server/`)
 
 ```bash
 npm run dev       # Start with Nodemon
 npm start         # Start the production server
 ```
 
-## API Overview
+## 🔌 API Overview
 
 All API endpoints are prefixed with `/api`.
 
@@ -159,15 +193,15 @@ Protected endpoints expect a bearer token:
 Authorization: Bearer <jwt-token>
 ```
 
-## Production Deployment
+## ☁️ Production Deployment
 
 The application is deployed as separate frontend and backend services.
 
-### 1. MongoDB Atlas
+### 1. 🗄️ MongoDB Atlas
 
 Create a MongoDB Atlas cluster, allow the backend service to connect, and copy its connection string.
 
-### 2. Deploy the backend on Render
+### 2. ⚡ Deploy the backend on Render
 
 Create a Render Web Service connected to this repository:
 
@@ -190,7 +224,7 @@ Verify the deployment at:
 https://<your-backend-domain>/api/health
 ```
 
-### 3. Deploy the frontend on Vercel
+### 3. 🌐 Deploy the frontend on Vercel
 
 Import the repository into Vercel with:
 
@@ -206,11 +240,11 @@ VITE_API_URL=https://<your-backend-domain>/api
 
 Redeploy after saving the variable. `client/vercel.json` keeps direct visits to React routes working.
 
-### File storage warning
+### ⚠️ File storage warning
 
 The current upload implementation stores files on the server filesystem. Some hosting platforms use ephemeral filesystems, so uploaded PDFs may be lost after a restart or redeploy. For production, replace local storage with an object-storage provider such as S3, Cloudinary, or Supabase Storage.
 
-## Security Notes
+## 🔒 Security Notes
 
 - Never commit `.env` files or production secrets.
 - Use a unique, high-entropy `JWT_SECRET` in production.
@@ -218,7 +252,7 @@ The current upload implementation stores files on the server filesystem. Some ho
 - Set `CLIENT_URL` to the exact frontend origin in production.
 - Add persistent, private file storage before using uploads with real user data.
 
-## Troubleshooting
+## 🧯 Troubleshooting
 
 ### The frontend shows network errors
 
@@ -236,13 +270,13 @@ Check `MONGO_URI`, MongoDB Atlas credentials, and the Atlas network access/IP al
 
 Confirm that the Vercel project root is `client` and that `client/vercel.json` is included in the deployment.
 
-## Contributing
+## 🤝 Contributing
 
 1. Create a feature branch.
 2. Make focused changes and test them locally.
 3. Keep secrets and generated files out of commits.
 4. Open a pull request with a clear description of the change.
 
-## License
+## 📄 License
 
 This project does not currently declare a software license. Add a `LICENSE` file before distributing it for reuse.
